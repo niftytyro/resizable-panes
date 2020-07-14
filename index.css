@@ -1,0 +1,53 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background: black;
+}
+.top-view {
+    display: flex;
+    flex-direction: row;
+}
+.left-pane-border {
+    padding-right: 3px;
+    cursor: w-resize;
+}
+.right-pane-border {
+    padding-left: 3px;
+    cursor: w-resize;
+}
+.bottom-pane-border {
+    padding-top: 3px;
+    cursor: s-resize;
+}
+.left-pane {
+    background: red;
+    min-width: 150px;  
+    max-width: 350px;
+    height: 100%;
+    cursor: default;
+}
+.right-pane {
+    background: blue;   
+    min-width: 150px;  
+    max-width: 350px;  
+    height: 100%;
+    cursor: default;
+}
+.display-pane {
+    background: green; 
+    height: 100%;
+}
+.bottom-pane {
+    background: chocolate;   
+    min-height: 210px;
+    max-height: 300px;
+    cursor: default;
+}
