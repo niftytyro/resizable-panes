@@ -1,6 +1,9 @@
 html, body {
     margin: 0;
     padding: 0;
+    color: #dddddd;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 * {
     box-sizing: border-box;
@@ -9,7 +12,7 @@ html, body {
 .container {
     display: flex;
     flex-direction: column;
-    background: black;
+    background: #555555;
 }
 .top-view {
     display: flex;
@@ -28,25 +31,37 @@ html, body {
     cursor: s-resize;
 }
 .left-pane {
-    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #333333;
     min-width: 150px;  
     max-width: 350px;
     height: 100%;
     cursor: default;
 }
 .right-pane {
-    background: blue;   
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: #222222;   
     min-width: 150px;  
     max-width: 350px;  
     height: 100%;
     cursor: default;
 }
 .display-pane {
-    background: green; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222222; 
     height: 100%;
 }
 .bottom-pane {
-    background: chocolate;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222222;   
     min-height: 210px;
     max-height: 300px;
     cursor: default;
