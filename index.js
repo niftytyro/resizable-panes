@@ -18,15 +18,22 @@ var left_pane_border;
 var right_pane_border;
 var bottom_pane_border;
 
+var initX;
+var initY;
+var dragging = false;
+var resize_element;
+var differenceX;
+var differenceY;
+
 function initialize() {
     top_view = $('.top-view');
     left_pane = $('.left-pane');
     right_pane = $('.right-pane');
     display_pane = $('.display-pane');
     bottom_pane = $('.bottom-pane');
-    left_pane_border = $('left-pane-border');
-    right_pane_border = $('right-pane-border');
-    bottom_pane_border = $('bottom-pane-border');
+    left_pane_border = $('.left-pane-border');
+    right_pane_border = $('.right-pane-border');
+    bottom_pane_border = $('.bottom-pane-border');
     WINDOW_WIDTH = $(document).width();
     WINDOW_WIDTH = $(document).height();
     LEFT_WIDTH = left_pane.width();
@@ -41,6 +48,38 @@ function initialize() {
 
     top_view.css('height', (DISPLAY_HEIGHT - BOTTOM_HEIGHT - 3) + 'px');
     display_pane.css('width', (DISPLAY_WIDTH - LEFT_WIDTH - RIGHT_WIDTH - 6) + 'px');
+
+    left_pane_border.mousedown(function (event) {
+        initX = event.pageX;
+        initY = event.pageY;
+        dragging = true;
+        resize_element = left_pane;
+    });
+    right_pane_border.mousedown(function (event) {
+        initX = event.pageX;
+        initY = event.pageY;
+        dragging = true;
+        resize_element = right_pane;
+    });
+    bottom_pane_border.mousedown(function (event) {
+        initX = event.pageX;
+        initY = event.pageY;
+        dragging = true;
+        resize_element = bottom_pane;
+    });
+    $(document).mouseup(function (event) {
+        dragging = false;
+    });
+    $(document).mousemove(function (event) {
+        if (dragging) {
+            differenceX = event.pageX - initX;
+            differenceY = event.pageY - initY;
+            left_pane.css('width', left_pane.width() + differenceX + 'px');
+            initX = event.pageX;
+            initY = event.pageY;
+            console.log(left_pane.width());
+        }
+    });
 }
 
 $(document).ready(() => {
